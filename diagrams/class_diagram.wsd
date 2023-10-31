@@ -1,2 +1,48 @@
 @startuml class_diagram
+class Player {
+    - name: String
+    - account: Account
+    + Player(name: String, startBalance: int)
+    + getName(): String
+    + toString(): String
+}
+
+class Bank {
+    - balance: int
+    + Bank(startBalance: int)
+}
+
+class GameBoard {
+    - boardSpaces: BoardSpace
+}
+
+class Dice {
+    - sides: int
+    - value: int
+    + Dice(sides: int)
+    + rollDice(): void
+    + getValue(): int
+}
+
+abstract class BoardSpace {}
+
+BoardSpace <|-- PropertySpace
+BoardSpace <|-- ChanceSpace
+BoardSpace <|-- JailSpace
+BoardSpace <|-- PassiveSpace
+BoardSpace --|> GameBoard::boardSpaces
+
+class Game {
+    - players: Player[]
+    - gameBoard: GameBoard
+    - dice: Dice
+    + Game(players: int)
+    + startGame(): void
+    + switchTurn(): void
+}
+
+Bank --> GameBoard::bank
+Player --> GameBoard::players
+Dice --> GameBoard::dice
+GameBoard --> Game
 @enduml
