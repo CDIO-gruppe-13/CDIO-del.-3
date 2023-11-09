@@ -1,15 +1,66 @@
 @startuml class_diagram
-class Player {
-    - name: String
-    - account: Account
-    + Player(name: String, startBalance: int)
-    + getName(): String
+class Account {
+    - balance: int
+    + Account(startBalance: int)
+    + getBalance(): int
+    + addBalance(): boolean
+    + subtractBalance() : boolean
     + toString(): String
 }
+
+class Player {
+    - character: String
+    - age: int
+    - account: Account
+    - position: int
+    + Player(name: String, startBalance: int)
+    + getName(): String
+    + getPosition(): int
+    + setPosition(): int
+    + toString(): String
+}
+
+Account --> Player::account
 
 class Bank {
     - balance: int
     + Bank(startBalance: int)
+    + giveMoney(player: Player, balance: int): boolean
+    + takeMoney(player: Player, balance: int): boolean
+}
+
+abstract class BoardSpace {
+    {abstract} name: String
+}
+
+class PropertySpace {
+    - price: int
+    - owner: Player
+    - color: Color
+    + PropertySpace(name: String, price: String)
+    + getRent(): int
+}
+
+enum Color {
+    ORANGE
+    GREEN
+    LIGHT_BLUE
+    DARK_BLUE
+    PINK
+    RED
+}
+
+class JailSpace {
+    jailedPlayers: Player[]
+}
+
+class ChanceSpace {}
+
+class ChanceCards {
+    - index: int
+    - order: int[]
+    + ChanceCards()
+    + pickCard(player: Player): void
 }
 
 class GameBoard {
@@ -24,25 +75,35 @@ class Dice {
     + getValue(): int
 }
 
-abstract class BoardSpace {}
+PropertySpace::color <-- Color
 
 BoardSpace <|-- PropertySpace
 BoardSpace <|-- ChanceSpace
 BoardSpace <|-- JailSpace
 BoardSpace <|-- PassiveSpace
-BoardSpace --|> GameBoard::boardSpaces
+BoardSpace -|> GameBoard::boardSpaces
 
-class Game {
+class GameLogic {
+    - chanceCards: ChanceCards
     - players: Player[]
+    - turn: int
     - gameBoard: GameBoard
     - dice: Dice
-    + Game(players: int)
-    + startGame(): void
+    + GameLogic(players: int)
+    + playTurn(): void
     + switchTurn(): void
 }
 
-Bank --> GameBoard::bank
-Player --> GameBoard::players
-Dice --> GameBoard::dice
-GameBoard --> Game
+ChanceCards --> GameLogic::chanceCards
+Bank ---> GameLogic::bank
+Player ---> GameLogic::players
+Dice ---> GameLogic::dice
+GameBoard --> GameLogic
+
+class ConsoleGame {
+    + ConsoleGame(players: int)
+    + startGame(): void
+}
+
+GameLogic --> ConsoleGame
 @enduml
