@@ -1,2 +1,13 @@
 @startuml sequence_diagram
+actor "gameLogic : GameLogic"
+participant "dice : Dice"
+participant "boardField : BoardField"
+
+"gameLogic : GameLogic" -> "dice : Dice": rolls
+"gameLogic : GameLogic" <- "dice : Dice": getFaceValue
+
+"gameLogic : GameLogic" -> "boardField : BoardField": Move piece
+
+
+
 @enduml
