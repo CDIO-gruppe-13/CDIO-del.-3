@@ -1,2 +1,21 @@
 @startuml system_sequence_diagram
+actor "bank : Bank" <<(C,#ADD1B2)>>
+actor "player : Player" <<(C,#ADD1B2)>>
+actor "propertyOwner : Player" <<(C,#ADD1B2)>>
+participant "chanceCards : ChanceCards" <<(C,#ADD1B2)>>
+participant "dice: Dice" <<(C,#ADD1B2)>>
+participant "jail: BoardField" <<(C,#ADD1B2)>>
+
+"player : Player" -> "dice: Dice": rolls
+group Lands on [Property]
+    alt Property is owned
+        "player : Player" -> "propertyOwner : Player": pays property rent
+    else Property is not owned
+        "player : Player" -> "bank : Bank": pays for property
+    end
+else Chance card
+    "player : Player" -> "chanceCards : ChanceCards": picks
+else Jail
+    "player : Player" -> "jail: BoardField": go to
+end
 @enduml
