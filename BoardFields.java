@@ -20,4 +20,9 @@ public class BoardFields {
     public String getDescription() {
         return this.description;
     }
+
+    public static final BoardFields Start = new Fields("Start", 3, "1 M");
+    public static BoardFields[] getAllFields() {
+        return new BoardFields[]{Start};
+    }
 }
