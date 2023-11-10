@@ -4,10 +4,6 @@ participant "dice : Dice"
 participant "boardField : BoardField"
 
 "gameLogic : GameLogic" -> "dice : Dice": rolls
-"gameLogic : GameLogic" <- "dice : Dice": getFaceValue
-
+"dice : Dice" -> "gameLogic : GameLogic": getFaceValue
 "gameLogic : GameLogic" -> "boardField : BoardField": Move piece
-
-
-
 @enduml
