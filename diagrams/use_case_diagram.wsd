@@ -10,6 +10,7 @@ rectangle Monolopy {
     usecase "Pay Rent" as pr
     usecase "Pay Fine" as pf
     usecase "Collect Money" as cm
+    usecase "Give Money" as gm
 }
 P --> rd
 P --> mp
@@ -18,4 +19,5 @@ P --> pr
 P --> pf
 P --> cm
 cm <-- B
+gm <-- B
 @enduml
