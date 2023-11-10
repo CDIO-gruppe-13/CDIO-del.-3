@@ -11,10 +11,11 @@ class Account {
 class Player {
     - character: String
     - age: int
-    - account: Account
     - position: int
-    + Player(name: String, startBalance: int)
+    + account: Account
+    + Player(name: String age: int, startBalance: int)
     + getName(): String
+    + getAge(): int
     + getPosition(): int
     + setPosition(): int
     + toString(): String
