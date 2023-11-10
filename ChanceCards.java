@@ -12,7 +12,7 @@ public class ChanceCards {
     public ChanceCards() {
         CardDeck = new ChanceCards[20];
 
-        CardDeck[1] = new ChanceCards();
+        CardDeck[1] = new ChanceCards("Green Car", "Give this card to the green car");
         CardDeck[2] = new ChanceCards();
         CardDeck[3] = new ChanceCards();
         CardDeck[4] = new ChanceCards();
