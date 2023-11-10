@@ -3,7 +3,7 @@ public class BoardFields {
     private int price;
     private String description;
 
-    public void Fields(String name, int price, String description) {
+    public BoardFields(String name, int price, String description) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -21,8 +21,11 @@ public class BoardFields {
         return this.description;
     }
 
-    public static final BoardFields Start = new Fields("Start", 3, "1 M");
-    public static BoardFields[] getAllFields() {
-        return new BoardFields[]{Start};
-    }
+    BoardFields Start = new BoardFields("Start,", 3, "Test");
+    /*
+     * public static final BoardFields Start = new Fields("Start", 3, "1 M");
+     * public static BoardFields[] getAllFields() {
+     * return new BoardFields[]{Start};
+     * }
+     */
 }
