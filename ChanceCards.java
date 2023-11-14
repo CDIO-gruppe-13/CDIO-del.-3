@@ -30,7 +30,7 @@ public class ChanceCards {
                 0, true);
         CardDeck[7] = new ChanceCards("Pay 2 M", "You have eaten too much candy pay 2 M to the bank", -2, false);
         CardDeck[8] = new ChanceCards("Free field: Green and Orange",
-                "You move forward to a Oragne or Green field, if its free you get it, if its not free pay rent to the owner",
+                "You move forward to a Orange or Green field, if its free you get it, if its not free pay rent to the owner",
                 0, false);
         CardDeck[9] = new ChanceCards("Free field: Light Blue",
                 "You move forward to a Light Blue field, if its free you get it, if its not free pay rent to the owner",
