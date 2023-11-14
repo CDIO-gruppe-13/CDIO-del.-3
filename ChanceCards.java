@@ -32,11 +32,11 @@ public class ChanceCards {
         CardDeck[8] = new ChanceCards("Free field: Green and Orange",
                 "You move forward to a Oragne or Green field, if its free you get it, if its not free pay rent to the owner",
                 0, false);
-        CardDeck[9] = new ChanceCards("Free field",
+        CardDeck[9] = new ChanceCards("Free field: Light Blue",
                 "You move forward to a Light Blue field, if its free you get it, if its not free pay rent to the owner",
                 0, false);
         CardDeck[10] = new ChanceCards("Get out of jail free",
-                "You can get out of jail free, Keep this card until its needed.", 0, false);
+                "You can get out of jail free, Keep this card until its needed.", 0, true);
         CardDeck[11] = new ChanceCards("Move to", "Move to the beach promade", 0, false);
         CardDeck[12] = new ChanceCards("Cat",
                 "Give this card to the Cat then pull another, Cat in your turn move to any free field and buy it, if theres no free fields buy one from any player.",
