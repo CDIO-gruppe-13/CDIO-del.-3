@@ -22,31 +22,30 @@ public class BoardFields {
     }
 
     BoardFields Start = new BoardFields("Start,", 0, "You passed the start!");
-    BoardFields Burgerbar = new BoardFields("Burgerbar", 1, "You've passed the Burgerbar!");
-    BoardFields Pizzariaet = new BoardFields("Pizzariaet", 1, "You've passed the Pizzaria!");
+    BoardFields Burgerbar = new BoardFields("The Burger-bar", 1, "You've passed the Burger-bar!");
+    BoardFields ThePizzaria = new BoardFields("The Pizzaria", 1, "You've passed the Pizzaria!");
     BoardFields Chance = new BoardFields("Chance", 0, "You've passed the Chance!");
-    BoardFields Slikbutikken = new BoardFields("Slikbutikken", 1, "You've passed the Slikbutik!");
-    BoardFields Iskiosken = new BoardFields("Iskiosken", 1, "You've passed the Iskiosk!");
-    BoardFields Fængselbesøg = new BoardFields("Fængselsbesøg", 1, "You've passed the På besøg i fængsel!");
-    BoardFields Museet = new BoardFields("Museet", 2, "You've passed the Museum!");
-    BoardFields Biblioteket = new BoardFields("Biblioteket", 2, "You've passed the Bibliotek!");
+    BoardFields CandyStore = new BoardFields("The Candy Store", 1, "You've passed the Candy Store!");
+    BoardFields Icekiosk = new BoardFields("Ice-kiosk", 1, "You've passed the Ice-kiosk!");
+    BoardFields JailVisit = new BoardFields("Jail Visit", 1, "You're on visit to the jail!");
+    BoardFields Museum = new BoardFields("The museum", 2, "You've passed the Museum!");
+    BoardFields Library = new BoardFields("The Library", 2, "You've passed the Library!");
     BoardFields Chance2 = new BoardFields("Chance", 0, "You've passed the Chance!");
-    BoardFields Skaterparken = new BoardFields("Skaterparken", 2, "You've passed the Skaterpark!");
-    BoardFields Poolen = new BoardFields("Poolen", 2, "You've passed the Pool!");
-    BoardFields Gratisparkering = new BoardFields("Gratis parkering", 0, "You've passed the Gratis parkering!");
-    BoardFields Spillehallen = new BoardFields("Spillehallen", 3, "You've passed the Spillehal!");
-    BoardFields Biografen = new BoardFields("Biografen", 3, "You've passed the Biograf!");
+    BoardFields Skatepark = new BoardFields("The Skate park", 2, "You've passed the Skate park!");
+    BoardFields Poolen = new BoardFields("The Pool", 2, "You've passed the Pool!");
+    BoardFields FreeParking = new BoardFields("Free parking", 0, "You've passed the Free parking!");
+    BoardFields Arcade = new BoardFields("Arcade", 3, "You've passed the Arcade!");
+    BoardFields Cinema = new BoardFields("Cinema", 3, "You've passed the Cinema!");
     BoardFields Chance3 = new BoardFields("Chance", 0, "You've passed the Chance!");
-    BoardFields Legetøjsbutikken = new BoardFields("Legetøjsbutikken", 3, "You've passed the Legetøjsbutik!");
-    BoardFields Dyrehandler = new BoardFields("Dyrehandler", 3, "You've passed the Dyrehandler!");
-    BoardFields Fængsel = new BoardFields("Fængsel", 3, "You've passed the Fængsel!");
-    BoardFields Bowlinghal = new BoardFields("Bowlinghallen", 4, "You've passed the Bowlinghal!");
+    BoardFields ToyStore = new BoardFields("The Toystore", 3, "You've passed the Toy store!");
+    BoardFields PetShop = new BoardFields("The Pet Shop", 3, "You've passed the Pet Shop!");
+    BoardFields Jail = new BoardFields("The Jail", 3, "You've drove to fast go to Jail!");
+    BoardFields BowlingHall = new BoardFields("The Bowling Hall", 4, "You've passed the Bowling hall!");
     BoardFields Zoo = new BoardFields("Zoo", 4, "You've passed the Zoo!");
-    BoardFields Chance4 = new BoardFields("Biografen", 0, "You've passed the Chance!");
-    BoardFields Vandland = new BoardFields("Vandland", 5, "You've passed the Vandland!");
-    BoardFields Strandpromenaden = new BoardFields("Biografen", 5, "You've passed the Strandpromenaden!");
+    BoardFields Chance4 = new BoardFields("Chance4", 0, "You've landed on Chance!");
+    BoardFields WaterPark = new BoardFields("Water Park", 5, "You've passed the Water Park!");
+    BoardFields BeachPromenade = new BoardFields("Beach Promenade", 5, "You've passed the Beach Promenade!");
 
-    
     /*
      * public static final BoardFields Start = new Fields("Start", 3, "1 M");
      * public static BoardFields[] getAllFields() {
