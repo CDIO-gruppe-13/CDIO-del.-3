@@ -3,7 +3,7 @@ public class JailSpace extends BoardSpace {
 
   public Vector<Player> jailedPlayers;
 
-  JailSpace(String name) {
-    super(name);
+  JailSpace(String name, String description) {
+    super(name, description);
   }
 }

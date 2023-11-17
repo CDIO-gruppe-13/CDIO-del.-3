@@ -1,6 +1,6 @@
 public class PassiveSpace extends BoardSpace {
 
-  PassiveSpace(String name) {
-    super(name);
+  PassiveSpace(String name, String description) {
+    super(name, description);
   }
 }

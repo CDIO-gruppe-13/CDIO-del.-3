@@ -1,10 +1,11 @@
-public class PropertySpace {
+public class PropertySpace extends BoardSpace {
 
   private int price;
   private Player owner;
   private Color color;
 
-  PropertySpace(int price, Color color) {
+  PropertySpace(String name, String description, int price, Color color) {
+    super(name, description);
     this.price = price;
     this.color = color;
   }

@@ -1,6 +1,6 @@
 public class ChanceSpace extends BoardSpace {
 
-  ChanceSpace(String name) {
-    super(name);
+  ChanceSpace(String name, String description) {
+    super(name, description);
   }
 }
