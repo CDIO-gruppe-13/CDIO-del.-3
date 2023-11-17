@@ -44,7 +44,7 @@ public class BoardFields {
     BoardFields Zoo = new BoardFields("Zoo", 4, "You've passed the Zoo!");
     BoardFields Chance4 = new BoardFields("Biografen", 0, "You've passed the Chance!");
     BoardFields Vandland = new BoardFields("Vandland", 5, "You've passed the Vandland!");
-    BoardFields Strandpromenaden = new BoardFields("Biografen", 5, "You've passed the Strandpromenaden!");
+    BoardFields Strandpromenaden = new BoardFields("Strandpromenaden", 5, "You've passed the Strandpromenaden!");
 
     
     /*
