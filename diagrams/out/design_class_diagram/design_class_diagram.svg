@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="836px" preserveAspectRatio="none" style="width:1229px;height:836px;background:#FFFFFF;" version="1.1" viewBox="0 0 1229 836" width="1229px" zoomAndPan="magnify"><defs/><g><g id="elem_Account"><rect fill="#F1F1F1" height="117.6563" style="stroke:#181818;stroke-width:0.5;" width="124" x="1045.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="1082" y="23.5332">Account</text><line style="stroke:#181818;stroke-width:0.5;" x1="1046.5" x2="1168.5" y1="28.6094" y2="28.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="1051.5" y="47.1426">balance</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="1051.5" y="64.752">getBalance()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="1051.5" y="82.3613">addBalance()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="1051.5" y="99.9707">subtractBalance()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="1051.5" y="117.5801">toString()</text></g><g id="elem_Player"><rect fill="#F1F1F1" height="170.4844" style="stroke:#181818;stroke-width:0.5;" width="121" x="1046" y="189"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="1086.5" y="205.5332">Player</text><line style="stroke:#181818;stroke-width:0.5;" x1="1047" x2="1166" y1="210.6094" y2="210.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="1052" y="229.1426">character: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="1052" y="246.752">age: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="1052" y="264.3613">account: Account</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="1052" y="281.9707">position: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="1052" y="299.5801">getName()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="1052" y="317.1895">getPosition()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="1052" y="334.7988">setPosition()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="1052" y="352.4082">toString()</text></g><g id="elem_Bank"><rect fill="#F1F1F1" height="82.4375" style="stroke:#181818;stroke-width:0.5;" width="103" x="7" y="232.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="42.5" y="249.0332">Bank</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="109" y1="254.1094" y2="254.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="13" y="272.6426">balance: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="13" y="290.252">giveMoney(...)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="13" y="307.8613">takeMoney(...)</text></g><g id="elem_BoardSpace"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="92" x="703.5" y="254.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="710.5" y="271.0332">BoardSpace</text><line style="stroke:#181818;stroke-width:0.5;" x1="704.5" x2="794.5" y1="276.1094" y2="276.1094"/></g><g id="elem_PropertySpace"><rect fill="#F1F1F1" height="82.4375" style="stroke:#181818;stroke-width:0.5;" width="108" x="836.5" y="422"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="843.5" y="438.5332">PropertySpace</text><line style="stroke:#181818;stroke-width:0.5;" x1="837.5" x2="943.5" y1="443.6094" y2="443.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="842.5" y="462.1426">price: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="842.5" y="479.752">owner: Player</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="842.5" y="497.3613">getRent(): int</text></g><g id="elem_JailSpace"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="74" x="979.5" y="444"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="986.5" y="460.5332">JailSpace</text><line style="stroke:#181818;stroke-width:0.5;" x1="980.5" x2="1052.5" y1="465.6094" y2="465.6094"/></g><g id="elem_ChanceSpace"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="103" x="416" y="444"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="423" y="460.5332">ChanceSpace</text><line style="stroke:#181818;stroke-width:0.5;" x1="417" x2="518" y1="465.6094" y2="465.6094"/></g><g id="elem_PassiveSpace"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="103" x="698" y="444"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="705" y="460.5332">PassiveSpace</text><line style="stroke:#181818;stroke-width:0.5;" x1="699" x2="800" y1="465.6094" y2="465.6094"/></g><g id="elem_ChanceCards"><rect fill="#F1F1F1" height="82.4375" style="stroke:#181818;stroke-width:0.5;" width="109" x="554" y="422"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="565" y="438.5332">ChanceCards</text><line style="stroke:#181818;stroke-width:0.5;" x1="555" x2="662" y1="443.6094" y2="443.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="560" y="462.1426">index: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="560" y="479.752">order: int[]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="560" y="497.3613">ChanceCards()</text></g><g id="elem_GameBoard"><rect fill="#F1F1F1" height="47.2188" style="stroke:#181818;stroke-width:0.5;" width="182" x="119.5" y="440"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="172.5" y="456.5332">GameBoard</text><line style="stroke:#181818;stroke-width:0.5;" x1="120.5" x2="300.5" y1="461.6094" y2="461.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="125.5" y="480.1426">boardSpaces: BoardSpace</text></g><g id="elem_Dice"><rect fill="#F1F1F1" height="100.0469" style="stroke:#181818;stroke-width:0.5;" width="103" x="311" y="223.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28" x="348.5" y="240.0332">Dice</text><line style="stroke:#181818;stroke-width:0.5;" x1="312" x2="413" y1="245.1094" y2="245.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="317" y="263.6426">sides: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="317" y="281.252">value: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="317" y="298.8613">rollDice(): void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="317" y="316.4707">getValue(): int</text></g><g id="elem_GameLogic"><rect fill="#F1F1F1" height="152.875" style="stroke:#181818;stroke-width:0.5;" width="191" x="266" y="568"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="325.5" y="584.5332">GameLogic</text><line style="stroke:#181818;stroke-width:0.5;" x1="267" x2="456" y1="589.6094" y2="589.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="272" y="608.1426">chanceCards: ChanceCards</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="272" y="625.752">players: Player[]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="272" y="643.3613">turn: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="272" y="660.9707">gameBoard: GameBoard</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="272" y="678.5801">dice: Dice</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="272" y="696.1895">playTurn()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="272" y="713.7988">switchTurn()</text></g><g id="elem_ConsoleGame"><rect fill="#F1F1F1" height="47.2188" style="stroke:#181818;stroke-width:0.5;" width="104" x="309.5" y="782"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="316.5" y="798.5332">ConsoleGame</text><line style="stroke:#181818;stroke-width:0.5;" x1="310.5" x2="412.5" y1="803.6094" y2="803.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="315.5" y="822.1426">startGame()</text></g><!--MD5=[c6fce608a0a6707a5680a80d12713d33]
+link Account to Player--><g id="link_Account_Player"><path codeLine="20" d="M1148.89,125.19 C1184.25,179.46 1222.3,252.75 1173.5,257.28 " fill="none" id="Account-to-Player" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1168.5,257.5,1177.663,261.111,1173.4954,257.2859,1177.3205,253.1183,1168.5,257.5" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[998189bbc929b6f400c4f3e60758b9ed]
+reverse link BoardSpace to PropertySpace--><g id="link_BoardSpace_PropertySpace"><path codeLine="60" d="M766.56,297.18 C789.74,328 831.56,383.63 860.16,421.66 " fill="none" id="BoardSpace-backto-PropertySpace" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="763.28,292.82,765.5019,302.415,766.2891,296.8131,771.8909,297.6004,763.28,292.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[dfb1754723e38189f8d0ac9c7de8e132]
+reverse link BoardSpace to ChanceSpace--><g id="link_BoardSpace_ChanceSpace"><path codeLine="61" d="M717.97,295.46 C662.27,332.5 547.36,408.9 494.81,443.84 " fill="none" id="BoardSpace-backto-ChanceSpace" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="722.2,292.65,712.4927,294.3141,718.0397,295.4235,716.9303,300.9705,722.2,292.65" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6092523c88bf9fb8782fc6ce8c40a44c]
+reverse link BoardSpace to JailSpace--><g id="link_BoardSpace_JailSpace"><path codeLine="62" d="M780.42,295.46 C822.06,323.78 898.34,376.04 962.5,422 C972.36,429.07 983.13,436.99 992.43,443.91 " fill="none" id="BoardSpace-backto-JailSpace" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="776.26,292.63,781.4634,300.9921,780.3981,295.4365,785.9537,294.3711,776.26,292.63" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[428b096b2392eadb63c2181922088f72]
+reverse link BoardSpace to PassiveSpace--><g id="link_BoardSpace_PassiveSpace"><path codeLine="63" d="M749.5,298.15 C749.5,336.1 749.5,409.78 749.5,443.88 " fill="none" id="BoardSpace-backto-PassiveSpace" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="749.5,292.82,745.5,301.82,749.5,297.82,753.5,301.82,749.5,292.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[cc1d7ce45d81e5fca024e18d1dca112c]
+link BoardSpace to GameBoard--><g id="link_BoardSpace_GameBoard"><path codeLine="64" d="M703.43,292.18 C635.73,318.53 505.78,370.56 398.5,422 C359.02,440.93 352.13,468.04 315.51,473.15 " fill="none" id="BoardSpace-to-GameBoard" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="302.5,474,308.7467,477.6025,314.4747,473.2219,308.228,469.6194,302.5,474" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="14" x="681.6353" y="291.2982">24</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="309.6047" y="471.9041">1</text></g><!--MD5=[64f47c333ca01b3df677b7f5ceb9a8c0]
+link ChanceCards to GameLogic--><g id="link_ChanceCards_GameLogic"><path codeLine="76" d="M586.72,504.36 C562.37,543.59 518.98,597.72 463.55,600.86 " fill="none" id="ChanceCards-to-GameLogic" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="458.5,601,467.6106,604.7413,463.498,600.8572,467.3821,596.7446,458.5,601" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b9cb77fd13935584573a460a1acb4d13]
+link Bank to GameLogic--><g id="link_Bank_GameLogic"><path codeLine="77" d="M54.23,314.66 C51.16,363.95 53.15,447.88 93.5,504 C131.76,557.21 196.71,591.39 253.1,612.42 " fill="none" id="Bank-to-GameLogic" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="257.83,614.16,250.7706,607.2923,253.139,612.4295,248.0018,614.7979,257.83,614.16" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a06078b96abfc18dc03b0f0b54d6bdd3]
+link Player to GameLogic--><g id="link_Player_GameLogic"><path codeLine="78" d="M1115.91,362.01 C1116.06,410.01 1107.24,467.08 1071.5,504 C976.35,602.29 606.61,617.62 463.89,617.99 " fill="none" id="Player-to-GameLogic" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="458.5,618,467.5,622,463.5,618,467.5,614,458.5,618" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="22" x="1093.8181" y="381.0519">2..4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="464.9383" y="613.3002">1</text></g><!--MD5=[1abc75e2182eab2089e7fa791466145c]
+link Dice to GameLogic--><g id="link_Dice_GameLogic"><path codeLine="79" d="M361.67,323.71 C362.77,372.06 369.67,446.72 398.5,504 C415.31,537.41 443.17,529.45 457.5,564 C475.01,606.21 503.71,666.1 463.72,670.72 " fill="none" id="Dice-to-GameLogic" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="458.5,671,467.7036,674.5063,463.4926,670.729,467.2699,666.518,458.5,671" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5c6d87f11550e209190dfe623d3558a8]
+link GameBoard to GameLogic--><g id="link_GameBoard_GameLogic"><path codeLine="80" d="M232.78,490.26 C248.51,508.81 270.51,534.74 291.88,559.93 " fill="none" id="GameBoard-to-GameLogic" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="295.3,563.97,292.5179,554.5223,292.0613,560.1607,286.4229,559.7041,295.3,563.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8c85882bd97567292fc582daa52891ce]
+link GameLogic to ConsoleGame--><g id="link_GameLogic_ConsoleGame"><path codeLine="86" d="M361.5,722.37 C361.5,741.79 361.5,761.35 361.5,776.51 " fill="none" id="GameLogic-to-ConsoleGame" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="361.5,781.89,365.5,772.89,361.5,776.89,357.5,772.89,361.5,781.89" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d9f4d88294a4539dc2150766a08a961c]
+@startuml design_class_diagram
+object Account {
+    balance
+    getBalance()
+    addBalance()
+    subtractBalance()
+    toString()
+}
+
+object Player {
+    character: String
+    age: int
+    account: Account
+    position: int
+    getName()
+    getPosition()
+    setPosition()
+    toString()
+}
+
+Account - -> Player::account
+
+object Bank {
+    balance: int
+    giveMoney(...)
+    takeMoney(...)
+}
+
+object BoardSpace {
+}
+
+object PropertySpace {
+    price: int
+    owner: Player
+    getRent(): int
+}
+
+object JailSpace {
+}
+
+object ChanceSpace
+object PassiveSpace
+
+object ChanceCards {
+    index: int
+    order: int[]
+    ChanceCards()
+}
+
+object GameBoard {
+    boardSpaces: BoardSpace
+}
+
+object Dice {
+    sides: int
+    value: int
+    rollDice(): void
+    getValue(): int
+}
+
+BoardSpace <- - PropertySpace
+BoardSpace <- - ChanceSpace
+BoardSpace <- - JailSpace
+BoardSpace <- - PassiveSpace
+BoardSpace "24" - -* "1" GameBoard::boardSpaces
+
+object GameLogic {
+    chanceCards: ChanceCards
+    players: Player[]
+    turn: int
+    gameBoard: GameBoard
+    dice: Dice
+    playTurn()
+    switchTurn()
+}
+
+ChanceCards - -> GameLogic::chanceCards
+Bank - - -> GameLogic::bank
+Player "2..4" - - -> "1" GameLogic::players
+Dice - - -> GameLogic::dice
+GameBoard - -> GameLogic
+
+object ConsoleGame {
+    startGame()
+}
+
+GameLogic - -> ConsoleGame
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>
