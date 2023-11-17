@@ -7,7 +7,7 @@ rectangle Monolopy {
     usecase "Roll Die" as rd
     usecase "Move Piece" as mp
     usecase "Buy Property" as bp
-    usecase "Sell Prperty" as sp
+    usecase "Sell Property" as sp
     usecase "Pay Rent" as pr
     usecase "Pay Fine" as pf
     usecase "Collect Money" as cm
