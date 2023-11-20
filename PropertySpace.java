@@ -10,23 +10,42 @@ public class PropertySpace extends BoardSpace {
     this.color = color;
   }
 
-  public int getRent() {
-    return price;
+  protected String wentBankrupt(Player player) {
+    return String.format(
+        "The player %s went bankrupt when attempting to pay %d in rent on %s",
+        player.getName(),
+        price,
+        getName());
   }
 
-  public Color getColor() {
-    return color;
+  protected String boughtProperty(Player player) {
+    return String.format(
+        "The player %s bought the property %s for %d",
+        player.getName(),
+        getName(),
+        price);
   }
 
-  public Player getOwner() {
-    return owner;
+  protected String paidRentToProperty(Player player) {
+    return String.format(
+        "The player %s paid %d in rent on the space %s",
+        player.getName(),
+        price,
+        getName());
   }
 
-  public void setOwner(Player owner) {
-    this.owner = owner;
-  }
+  public String action(Player player, Bank bank, BoardSpace[] boardSpaces) {
+    var paidBank = bank.takeMoney(player, price);
+    if (!paidBank) {
+      player.isBankrupt = true;
+      return wentBankrupt(player);
+    }
+    if (owner == null && paidBank) {
+      owner = player;
+      return boughtProperty(player);
+    } else {
+      return paidRentToProperty(player);
+    }
 
-  public int getPrice() {
-    return price;
   }
 }

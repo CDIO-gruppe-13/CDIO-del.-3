@@ -51,9 +51,7 @@ enum Color {
     RED
 }
 
-class JailSpace {
-    jailedPlayers: Player[]
-}
+class JailSpace {}
 
 class ChanceSpace {}
 
@@ -79,9 +77,10 @@ class Dice {
 PropertySpace::color <-- Color
 
 BoardSpace <|-- PropertySpace
-BoardSpace <|-- ChanceSpace
-BoardSpace <|-- JailSpace
-BoardSpace <|-- PassiveSpace
+UnownableBoardSpace <|-- ChanceSpace
+UnownableBoardSpace <|-- JailSpace
+UnownableBoardSpace <|-- PassiveSpace
+UnownableBoardSpace --|> BoardSpace
 BoardSpace -|> GameBoard::boardSpaces
 
 class GameLogic {

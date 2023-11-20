@@ -4,12 +4,16 @@ public class Player {
   private int age;
   private String name;
   private int position;
+  public boolean isBankrupt;
+  public int getOutOfJailFree;
   public Account account;
 
   Player(String name, int age, int startBalance) {
     this.name = name;
     this.age = age;
     this.position = 0;
+    getOutOfJailFree = 0;
+    isBankrupt = false;
     this.account = new Account(startBalance);
   }
 
