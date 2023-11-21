@@ -23,6 +23,8 @@ public class GUI_test implements ActionListener {
     JLabel PlayerThree;
     JLabel PlayerFour;
 
+    JButton RollButton;
+
     public void GUI() {
         // Creates the frame of the program.
         frame = new JFrame();
