@@ -53,6 +53,7 @@ public class ConsoleGame extends GameLogic {
       players[i] = new Player(name, age, 0);
       bank.giveMoney(players[i], startBalance);
     }
+    sortPlayersByAge();
   }
 
   protected void displayMessage(String message) {
