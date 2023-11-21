@@ -6,12 +6,8 @@ public class ConsoleGame extends GameLogic {
 
   Scanner scanner;
 
-  public ConsoleGame(int playerAmount) {
-    super(playerAmount);
-  }
-
   public void play() {
-    while (getWinner() == null) {
+    while (isPlaying) {
       System.out.print("Turn: " + players[turn].getName() + ", roll (r), quit (q):");
       var action = scanner.nextLine();
       if (action.equals("r")) {
@@ -27,6 +23,17 @@ public class ConsoleGame extends GameLogic {
 
   protected void initPlayers() {
     scanner = new Scanner(System.in);
+    int playerAmount;
+    while (true) {
+      System.out.println("How many players are playing (2-4)?: ");
+      try {
+        playerAmount = Integer.parseInt(scanner.nextLine());
+        break;
+      } catch (Exception e) {
+        System.out.println("Invalid input");
+      }
+    }
+    players = new Player[playerAmount];
     int startBalance;
     if (players.length == 2) {
       startBalance = 20;
@@ -35,6 +42,9 @@ public class ConsoleGame extends GameLogic {
     } else {
       startBalance = 16;
     }
+    System.out.println(String.format("The number of players is %d which means the start balance is %d M",
+        playerAmount,
+        startBalance));
     for (var i = 0; i < players.length; i++) {
       System.out.print("What is the name of player " + (i + 1) + "? ");
       var name = scanner.nextLine();

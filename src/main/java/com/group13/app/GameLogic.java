@@ -80,17 +80,18 @@ public abstract class GameLogic {
   protected int turn;
   protected Dice dice;
   protected Bank bank;
+  protected boolean isPlaying;
   // private ChanceCards chanceCards;
   private final int JAIL_PENALTY = 1;
   private final int PASS_START_REWARD = 2;
 
-  public GameLogic(int playerAmount) {
-    players = new Player[playerAmount];
+  public GameLogic() {
     turn = 0;
     dice = new Dice(6);
     bank = new Bank(90);
-    // chanceCards = new ChanceCards();
+    isPlaying = false;
     initPlayers();
+    // chanceCards = new ChanceCards();
     // order players by age
   }
 
@@ -139,7 +140,7 @@ public abstract class GameLogic {
   protected String paidRentToProperty(Player player, BoardSpace space) {
     try {
       return String.format(
-          "The player %s paid %d in rent on the space %s and now has %d left",
+          "The player %s paid %d M in rent on the space %s and now has %d M left",
           player.getName(),
           space.getPrice(),
           space.getName(),
@@ -214,6 +215,7 @@ public abstract class GameLogic {
     if (players[turn].account.getBalance() == 0) {
       players[turn].isBankrupt = true;
       displayMessage(wentBankrupt(players[turn], space));
+      isPlaying = false;
     }
     switchTurn();
   }
