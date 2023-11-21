@@ -161,15 +161,24 @@ public abstract class GameLogic {
   }
 
   protected String playerPassedStart(Player player) {
-    return String.format("The player %s passed the start and recieved %d M",
+    return String.format("The player %s passed the start and recieved %d M and now has %d M",
         players[turn].getName(),
-        PASS_START_REWARD);
+        PASS_START_REWARD,
+        players[turn].account.getBalance());
   }
 
   protected String winnerIs(Player player) {
     return String.format("The winner is %s who had %d M left",
         players[turn].getName(),
         players[turn].account.getBalance());
+  }
+
+  public void stopGame(BoardSpace space) {
+    players[turn].isBankrupt = true;
+    displayMessage(wentBankrupt(players[turn], space));
+    isPlaying = false;
+    displayMessage(getWinners());
+
   }
 
   public void playerRollDice() {
@@ -187,13 +196,21 @@ public abstract class GameLogic {
     if (space instanceof PropertySpace) {
       try {
         if (space.getOwner() != players[turn]) {
-          var paidBank = bank.takeMoney(players[turn], space.getPrice());
-          if (space.getOwner() == null && paidBank) {
+          if (space.getOwner() == null) {
+            var paidBank = bank.takeMoney(players[turn], space.getPrice());
+            if (!paidBank) {
+              stopGame(space);
+              return;
+            }
             space.setOwner(players[turn]);
             displayMessage(boughtProperty(players[turn], space));
           } else {
+            var paidPlayer = players[turn].giveMoney(space.getOwner(), space.getPrice());
+            if (!paidPlayer) {
+              stopGame(space);
+              return;
+            }
             displayMessage(paidRentToProperty(players[turn], space));
-            bank.giveMoney(space.getOwner(), space.getPrice());
           }
         }
       } catch (Exception e) {
@@ -216,12 +233,6 @@ public abstract class GameLogic {
       System.out.println("Error: space type not recognized");
     }
 
-    if (players[turn].account.getBalance() == 0) {
-      players[turn].isBankrupt = true;
-      displayMessage(wentBankrupt(players[turn], space));
-      isPlaying = false;
-      displayMessage(getWinners());
-    }
     switchTurn();
   }
 

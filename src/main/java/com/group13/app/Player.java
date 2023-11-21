@@ -41,4 +41,17 @@ public class Player {
   public String toString() {
     return this.name + ": " + this.account.toString() + " M";
   }
+
+  public boolean giveMoney(Player player, int amount) {
+    var balance = account.getBalance();
+    if (balance < amount) {
+      account.subtractBalance(balance);
+      player.account.addBalance(balance);
+      return false;
+    } else {
+      account.subtractBalance(amount);
+      player.account.addBalance(amount);
+      return true;
+    }
+  }
 }

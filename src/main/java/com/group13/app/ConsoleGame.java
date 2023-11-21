@@ -48,8 +48,17 @@ public class ConsoleGame extends GameLogic {
     for (var i = 0; i < players.length; i++) {
       System.out.print("What is the name of player " + (i + 1) + "? ");
       var name = scanner.nextLine();
-      System.out.print("What is the age of player " + (i + 1) + "? ");
-      var age = Integer.parseInt(scanner.nextLine());
+      int age;
+      while (true) {
+        System.out.print("What is the age of player " + (i + 1) + "? ");
+        try {
+          age = Integer.parseInt(scanner.nextLine());
+          break;
+        } catch (Exception e) {
+          System.out.println("Invalid input");
+        }
+      }
+
       players[i] = new Player(name, age, 0);
       bank.giveMoney(players[i], startBalance);
     }
