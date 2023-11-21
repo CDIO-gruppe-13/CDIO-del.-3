@@ -10,42 +10,28 @@ public class PropertySpace extends BoardSpace {
     this.color = color;
   }
 
-  protected String wentBankrupt(Player player) {
-    return String.format(
-        "The player %s went bankrupt when attempting to pay %d in rent on %s",
-        player.getName(),
-        price,
-        getName());
+  @Override
+  public boolean isOwnable() {
+    return true;
   }
 
-  protected String boughtProperty(Player player) {
-    return String.format(
-        "The player %s bought the property %s for %d",
-        player.getName(),
-        getName(),
-        price);
+  @Override
+  public int getPrice() throws Exception {
+    return price;
   }
 
-  protected String paidRentToProperty(Player player) {
-    return String.format(
-        "The player %s paid %d in rent on the space %s",
-        player.getName(),
-        price,
-        getName());
+  @Override
+  public Color getColor() throws Exception {
+    return color;
   }
 
-  public String action(Player player, Bank bank, BoardSpace[] boardSpaces) {
-    var paidBank = bank.takeMoney(player, price);
-    if (!paidBank) {
-      player.isBankrupt = true;
-      return wentBankrupt(player);
-    }
-    if (owner == null && paidBank) {
-      owner = player;
-      return boughtProperty(player);
-    } else {
-      return paidRentToProperty(player);
-    }
+  @Override
+  public Player getOwner() throws Exception {
+    return owner;
+  }
 
+  @Override
+  public void setOwner(Player newOwner) throws Exception {
+    owner = newOwner;
   }
 }

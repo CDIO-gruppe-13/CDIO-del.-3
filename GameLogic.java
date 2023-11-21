@@ -1,6 +1,6 @@
 public abstract class GameLogic {
 
-  BoardSpace[] boardSpaces = {
+  final BoardSpace[] boardSpaces = {
       new PassiveSpace("Start", "You passed the start!"),
       new PropertySpace(
           "Burgerbar",
@@ -79,6 +79,8 @@ public abstract class GameLogic {
   protected Dice dice;
   protected Bank bank;
   // private ChanceCards chanceCards;
+  private final int JAIL_PENALTY = 1;
+  private final int PASS_START_REWARD = 2;
 
   GameLogic(int playerAmount) {
     players = new Player[playerAmount];
@@ -87,29 +89,123 @@ public abstract class GameLogic {
     bank = new Bank(90);
     // chanceCards = new ChanceCards();
     initPlayers();
+    // order players by age
   }
 
   protected abstract void initPlayers();
 
   protected abstract void displayMessage(String message);
 
-  public void playerRollDice() {
-    dice.rollDice();
-    var newPosition = (players[turn].getPosition() + dice.getValue()) % boardSpaces.length;
-    players[turn].setPosition(newPosition);
+  private String usedGetOutOfJailFree(Player player) {
+    return String.format("The player %s used a get out of jail free card and now has %d get out of jail cards left",
+        player.getName(),
+        player.getOutOfJailFree);
+  }
 
-    var space = boardSpaces[newPosition];
+  private String paidJail(Player player, BoardSpace space) {
+    return String.format("The player %s paid the jail %d and now has %d money left",
+        player.getName(),
+        JAIL_PENALTY,
+        player.account.getBalance());
+  }
 
-    var rolledMessage = String.format("The player %s rolled a %d and landed on position %d, %s",
+  protected String wentBankrupt(Player player, BoardSpace space) {
+    try {
+      return String.format(
+          "The player %s went bankrupt when attempting to pay %d in rent on %s",
+          player.getName(),
+          space.getPrice(),
+          space.getName());
+    } catch (Exception e) {
+      return e.toString();
+    }
+  }
+
+  protected String boughtProperty(Player player, BoardSpace space) {
+    try {
+      return String.format(
+          "The player %s bought the property %s for %d and now has %d left",
+          player.getName(),
+          space.getName(),
+          space.getPrice(),
+          player.account.getBalance());
+    } catch (Exception e) {
+      return e.toString();
+    }
+  }
+
+  protected String paidRentToProperty(Player player, BoardSpace space) {
+    try {
+      return String.format(
+          "The player %s paid %d in rent on the space %s and now has %d left",
+          player.getName(),
+          space.getPrice(),
+          space.getName(),
+          player.account.getBalance());
+    } catch (Exception e) {
+      return e.toString();
+    }
+  }
+
+  protected String playerRolled(Player player, BoardSpace space) {
+    return String.format("The player %s rolled a %d and landed on position %d, %s",
         players[turn].getName(),
         dice.getValue(),
         players[turn].getPosition(),
         space.getName());
-    displayMessage(rolledMessage);
+  }
 
-    var message = space.action(players[turn], bank, boardSpaces);
-    displayMessage(message);
+  protected String playerPassedStart(Player player) {
+    return String.format("The player %s passed the start and recieved %d",
+        players[turn].getName(),
+        PASS_START_REWARD);
+  }
 
+  public void playerRollDice() {
+    dice.rollDice();
+    if (players[turn].getPosition() + dice.getValue() >= boardSpaces.length) {
+      bank.giveMoney(players[turn], PASS_START_REWARD);
+      displayMessage(playerPassedStart(players[turn]));
+    }
+    var newPosition = (players[turn].getPosition() + dice.getValue()) % boardSpaces.length;
+    players[turn].setPosition(newPosition);
+
+    var space = boardSpaces[newPosition];
+    displayMessage(playerRolled(players[turn], space));
+
+    if (space instanceof PropertySpace) {
+      try {
+        var paidBank = bank.takeMoney(players[turn], space.getPrice());
+        if (space.getOwner() == null && paidBank) {
+          space.setOwner(players[turn]);
+          displayMessage(boughtProperty(players[turn], space));
+        } else {
+          displayMessage(paidRentToProperty(players[turn], space));
+        }
+      } catch (Exception e) {
+        System.out.println(e.toString());
+      }
+    } else if (space instanceof JailSpace) {
+      players[turn].setPosition(6);
+      if (players[turn].getOutOfJailFree > 0) {
+        players[turn].getOutOfJailFree--;
+        displayMessage(usedGetOutOfJailFree(players[turn]));
+      } else {
+        bank.takeMoney(players[turn], JAIL_PENALTY);
+        displayMessage(paidJail(players[turn], space));
+      }
+    } else if (space instanceof ChanceSpace) {
+      // TODO pick chance card
+    } else if (space instanceof PassiveSpace) {
+
+    } else {
+      System.out.println("Error: space type not recognized");
+    }
+
+    if (players[turn].account.getBalance() == 0) {
+      players[turn].isBankrupt = true;
+      displayMessage(wentBankrupt(players[turn], space));
+    }
     switchTurn();
   }
 

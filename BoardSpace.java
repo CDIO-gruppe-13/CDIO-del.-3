@@ -16,5 +16,24 @@ public abstract class BoardSpace {
     return description;
   }
 
-  public abstract String action(Player player, Bank bank, BoardSpace[] boardSpaces);
+  public boolean isOwnable() {
+    return false;
+  }
+
+  public int getPrice() throws Exception {
+    throw new Exception();
+  }
+
+  public Color getColor() throws Exception {
+    throw new Exception();
+  }
+
+  public Player getOwner() throws Exception {
+    throw new Exception();
+  }
+
+  public void setOwner(Player newOwner) throws Exception {
+    throw new Exception();
+  }
+
 }
