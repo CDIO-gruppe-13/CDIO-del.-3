@@ -28,6 +28,7 @@ public class ConsoleGame extends GameLogic {
       System.out.println("How many players are playing (2-4)?: ");
       try {
         playerAmount = Integer.parseInt(scanner.nextLine());
+        if (playerAmount < 2 || 4 < playerAmount) throw new Exception();
         break;
       } catch (Exception e) {
         System.out.println("Invalid input");
