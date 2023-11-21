@@ -89,7 +89,7 @@ public abstract class GameLogic {
     turn = 0;
     dice = new Dice(6);
     bank = new Bank(90);
-    isPlaying = false;
+    isPlaying = true;
     initPlayers();
     // chanceCards = new ChanceCards();
     // order players by age
