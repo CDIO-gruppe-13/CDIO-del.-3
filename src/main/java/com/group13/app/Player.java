@@ -39,6 +39,6 @@ public class Player {
   }
 
   public String toString() {
-    return this.name + ": " + this.account.toString();
+    return this.name + ": " + this.account.toString() + " M";
   }
 }

@@ -1,5 +1,7 @@
 package com.group13.app;
 
+import java.util.Arrays;
+
 public abstract class GameLogic {
 
   final BoardSpace[] boardSpaces = {
@@ -184,13 +186,15 @@ public abstract class GameLogic {
 
     if (space instanceof PropertySpace) {
       try {
-        var paidBank = bank.takeMoney(players[turn], space.getPrice());
-        if (space.getOwner() == null && paidBank) {
-          space.setOwner(players[turn]);
-          displayMessage(boughtProperty(players[turn], space));
-        } else {
-          displayMessage(paidRentToProperty(players[turn], space));
-          bank.giveMoney(space.getOwner(), space.getPrice());
+        if (space.getOwner() != players[turn]) {
+          var paidBank = bank.takeMoney(players[turn], space.getPrice());
+          if (space.getOwner() == null && paidBank) {
+            space.setOwner(players[turn]);
+            displayMessage(boughtProperty(players[turn], space));
+          } else {
+            displayMessage(paidRentToProperty(players[turn], space));
+            bank.giveMoney(space.getOwner(), space.getPrice());
+          }
         }
       } catch (Exception e) {
         System.out.println(e.toString());
@@ -216,6 +220,7 @@ public abstract class GameLogic {
       players[turn].isBankrupt = true;
       displayMessage(wentBankrupt(players[turn], space));
       isPlaying = false;
+      displayMessage(getWinners());
     }
     switchTurn();
   }
@@ -224,20 +229,42 @@ public abstract class GameLogic {
     this.turn = (this.turn + 1) % this.players.length;
   }
 
-  public Player getWinner() {
-    Player winner = null;
-    var bankruptAmount = 0;
-    for (var i = 0; i < players.length; i++) {
-      if (players[i].isBankrupt) {
-        bankruptAmount++;
-      } else {
-        winner = players[i];
+  private void sortPlayersByBalance() {
+    boolean sorted = false;
+    while (!sorted) {
+      sorted = true;
+      for (var i = 0; i < players.length - 1; i++) {
+        if (players[i].account.getBalance() < players[i + 1].account.getBalance()) {
+          var temp = players[i];
+          players[i] = players[i + 1];
+          players[i + 1] = temp;
+          sorted = false;
+        }
       }
     }
-    if (bankruptAmount == players.length - 1) {
-      displayMessage(winnerIs(winner));
-      return winner;
+  }
+
+  public void sortPlayersByAge() {
+    boolean sorted = false;
+    while (!sorted) {
+      sorted = true;
+      for (var i = 0; i < players.length - 1; i++) {
+        if (players[i].getAge() > players[i + 1].getAge()) {
+          var temp = players[i];
+          players[i] = players[i + 1];
+          players[i + 1] = temp;
+          sorted = false;
+        }
+      }
     }
-    return null;
+  }
+
+  public String getWinners() {
+    sortPlayersByBalance();
+    var winners = "";
+    for (var i = 0; i < players.length; i++) {
+      winners += (i + 1) + ": " + players[i].toString() + System.lineSeparator();
+    }
+    return winners;
   }
 }
