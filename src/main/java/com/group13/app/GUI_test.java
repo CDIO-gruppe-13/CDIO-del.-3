@@ -17,6 +17,11 @@ public class GUI_test implements ActionListener {
     JPanel panel;
 
     // All the visual content of the product
+    JLabel labelTextBox;
+    JLabel PlayerOne;
+    JLabel PlayerTwo;
+    JLabel PlayerThree;
+    JLabel PlayerFour;
 
     public void GUI() {
         // Creates the frame of the program.
@@ -24,6 +29,13 @@ public class GUI_test implements ActionListener {
 
         // Creates the panel for all the content.
         panel = new JPanel();
+
+        labelTextBox = new JLabel();
+
+        PlayerOne = new JLabel();
+        PlayerTwo = new JLabel();
+        PlayerThree = new JLabel();
+        PlayerFour = new JLabel();
 
     }
 
