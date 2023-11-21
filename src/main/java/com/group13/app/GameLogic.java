@@ -1,4 +1,5 @@
 package com.group13.app;
+
 public abstract class GameLogic {
 
   final BoardSpace[] boardSpaces = {
@@ -63,14 +64,14 @@ public abstract class GameLogic {
           4,
           Color.GREEN),
       new PropertySpace("Zoo", "You've passed the Zoo!", 4, Color.GREEN),
-      new ChanceSpace("Biografen", "You've passed the Chance!"),
+      new ChanceSpace("Chance", "You've passed the Chance!"),
       new PropertySpace(
           "Vandland",
           "You've passed the Vandland!",
           5,
           Color.DARK_BLUE),
       new PropertySpace(
-          "Biografen",
+          "Strandpromenaden",
           "You've passed the Strandpromenaden!",
           5,
           Color.DARK_BLUE),
@@ -104,7 +105,7 @@ public abstract class GameLogic {
   }
 
   private String paidJail(Player player, BoardSpace space) {
-    return String.format("The player %s paid the jail %d and now has %d money left",
+    return String.format("The player %s paid the jail %d M and now has %d M left",
         player.getName(),
         JAIL_PENALTY,
         player.account.getBalance());
@@ -113,7 +114,7 @@ public abstract class GameLogic {
   protected String wentBankrupt(Player player, BoardSpace space) {
     try {
       return String.format(
-          "The player %s went bankrupt when attempting to pay %d in rent on %s",
+          "The player %s went bankrupt when attempting to pay %d M on %s",
           player.getName(),
           space.getPrice(),
           space.getName());
@@ -125,7 +126,7 @@ public abstract class GameLogic {
   protected String boughtProperty(Player player, BoardSpace space) {
     try {
       return String.format(
-          "The player %s bought the property %s for %d and now has %d left",
+          "The player %s bought the property %s for %d M and now has %d M left",
           player.getName(),
           space.getName(),
           space.getPrice(),
@@ -157,7 +158,7 @@ public abstract class GameLogic {
   }
 
   protected String playerPassedStart(Player player) {
-    return String.format("The player %s passed the start and recieved %d",
+    return String.format("The player %s passed the start and recieved %d M",
         players[turn].getName(),
         PASS_START_REWARD);
   }
