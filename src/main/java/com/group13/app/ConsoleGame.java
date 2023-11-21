@@ -1,4 +1,5 @@
 package com.group13.app;
+
 import java.util.Scanner;
 
 public class ConsoleGame extends GameLogic {

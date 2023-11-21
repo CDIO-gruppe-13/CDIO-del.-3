@@ -163,6 +163,12 @@ public abstract class GameLogic {
         PASS_START_REWARD);
   }
 
+  protected String winnerIs(Player player) {
+    return String.format("The winner is %s who had %d M left",
+        players[turn].getName(),
+        players[turn].account.getBalance());
+  }
+
   public void playerRollDice() {
     dice.rollDice();
     if (players[turn].getPosition() + dice.getValue() >= boardSpaces.length) {
@@ -217,17 +223,18 @@ public abstract class GameLogic {
   }
 
   public Player getWinner() {
-    Player winner;
+    Player winner = null;
     var bankruptAmount = 0;
     for (var i = 0; i < players.length; i++) {
       if (players[i].isBankrupt) {
         bankruptAmount++;
       } else {
         winner = players[i];
-        if (bankruptAmount == players.length - 1) {
-          return winner;
-        }
       }
+    }
+    if (bankruptAmount == players.length - 1) {
+      displayMessage(winnerIs(winner));
+      return winner;
     }
     return null;
   }
