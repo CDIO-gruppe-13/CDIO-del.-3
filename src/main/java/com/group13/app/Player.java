@@ -1,3 +1,4 @@
+package com.group13.app;
 public class Player {
 
   private String character;
@@ -8,7 +9,7 @@ public class Player {
   public int getOutOfJailFree;
   public Account account;
 
-  Player(String name, int age, int startBalance) {
+  public Player(String name, int age, int startBalance) {
     this.name = name;
     this.age = age;
     this.position = 0;

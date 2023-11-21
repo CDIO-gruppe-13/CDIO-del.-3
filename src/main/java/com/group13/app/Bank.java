@@ -1,8 +1,9 @@
+package com.group13.app;
 public class Bank {
 
   private int balance;
 
-  Bank(int startBalance) {
+  public Bank(int startBalance) {
     balance = startBalance;
   }
 

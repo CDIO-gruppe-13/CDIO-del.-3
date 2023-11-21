@@ -1,6 +1,7 @@
+package com.group13.app;
 public class PassiveSpace extends BoardSpace {
 
-  PassiveSpace(String name, String description) {
+  public PassiveSpace(String name, String description) {
     super(name, description);
   }
 }

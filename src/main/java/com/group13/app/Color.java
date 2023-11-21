@@ -1,3 +1,4 @@
+package com.group13.app;
 public enum Color {
   ORANGE,
   GREEN,

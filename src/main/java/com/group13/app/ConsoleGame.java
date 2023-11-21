@@ -1,10 +1,11 @@
+package com.group13.app;
 import java.util.Scanner;
 
 public class ConsoleGame extends GameLogic {
 
   Scanner scanner;
 
-  ConsoleGame(int playerAmount) {
+  public ConsoleGame(int playerAmount) {
     super(playerAmount);
   }
 

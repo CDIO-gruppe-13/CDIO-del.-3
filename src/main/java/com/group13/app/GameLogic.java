@@ -1,3 +1,4 @@
+package com.group13.app;
 public abstract class GameLogic {
 
   final BoardSpace[] boardSpaces = {
@@ -82,7 +83,7 @@ public abstract class GameLogic {
   private final int JAIL_PENALTY = 1;
   private final int PASS_START_REWARD = 2;
 
-  GameLogic(int playerAmount) {
+  public GameLogic(int playerAmount) {
     players = new Player[playerAmount];
     turn = 0;
     dice = new Dice(6);

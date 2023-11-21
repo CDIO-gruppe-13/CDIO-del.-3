@@ -1,6 +1,7 @@
+package com.group13.app;
 public class ChanceSpace extends BoardSpace {
 
-  ChanceSpace(String name, String description) {
+  public ChanceSpace(String name, String description) {
     super(name, description);
   }
 }

@@ -1,5 +1,6 @@
+package com.group13.app;
 public class JailSpace extends BoardSpace {
-  JailSpace(String name, String description) {
+  public JailSpace(String name, String description) {
     super(name, description);
   }
 }

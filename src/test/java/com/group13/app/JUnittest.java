@@ -1,4 +1,6 @@
+package com.group13.app;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class JUnittest {
