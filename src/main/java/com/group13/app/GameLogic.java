@@ -183,6 +183,7 @@ public abstract class GameLogic {
           displayMessage(boughtProperty(players[turn], space));
         } else {
           displayMessage(paidRentToProperty(players[turn], space));
+          bank.giveMoney(space.getOwner(), space.getPrice());
         }
       } catch (Exception e) {
         System.out.println(e.toString());
