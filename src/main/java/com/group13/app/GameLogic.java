@@ -237,6 +237,7 @@ public abstract class GameLogic {
 
       players[i] = new Player(name, age, 0);
       bank.giveMoney(players[i], startBalance);
+      System.out.println("The player now has: " + players[turn].account.getBalance());
     }
     sortPlayersByAge();
   }
