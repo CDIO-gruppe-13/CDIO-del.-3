@@ -52,6 +52,9 @@ public class GUI_test implements ActionListener {
         panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 100, 300));
         panel.setLayout(new GridLayout(6, 3));
         panel.add(PlayerOne, panel, 0);
+        panel.add(PlayerTwo, panel, 0);
+        panel.add(PlayerThree, panel, 0);
+        panel.add(PlayerFour, panel, 0);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
