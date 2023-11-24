@@ -50,6 +50,8 @@ public class GUI_test implements ActionListener {
         RollButton.addActionListener(this);
 
         panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 100, 300));
+        panel.setLayout(new GridLayout(6, 3));
+        panel.add(PlayerOne, panel, 0);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
