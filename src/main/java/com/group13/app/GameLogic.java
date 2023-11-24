@@ -363,7 +363,11 @@ public abstract class GameLogic {
         case 13:
           for (var i = 0; i < players.length; i++) {
             if (i != turn) {
-              players[i].giveMoney(players[turn], 1);
+              var paid = players[i].giveMoney(players[turn], 1);
+              if (!paid) {
+                displayMessage(wentBankrupt(players[i], space));
+                endGame();
+              }
             }
           }
           break;
