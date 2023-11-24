@@ -6,12 +6,14 @@ public class ChanceCard {
     private String desctiption;
     private int value;
     private boolean stash;
+    public final int index;
 
-    public ChanceCard(String name, String description, int value, boolean stash) {
+    public ChanceCard(String name, String description, int value, boolean stash, int index) {
         this.name = name;
         this.desctiption = description;
         this.value = value;
         this.stash = stash;
+        this.index = index;
     }
     public String getDesctiption() {
         return desctiption;

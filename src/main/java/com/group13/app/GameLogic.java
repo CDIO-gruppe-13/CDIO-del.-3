@@ -1,7 +1,5 @@
 package com.group13.app;
 
-import java.util.Arrays;
-
 public abstract class GameLogic {
 
   final BoardSpace[] boardSpaces = {
@@ -95,7 +93,7 @@ public abstract class GameLogic {
   protected Dice dice;
   protected Bank bank;
   protected boolean isPlaying;
-  // private ChanceCards chanceCards;
+  private ChanceCards chanceCards;
   private final int JAIL_PENALTY = 1;
   private final int PASS_START_REWARD = 2;
 
@@ -104,8 +102,7 @@ public abstract class GameLogic {
     dice = new Dice(6);
     bank = new Bank(90);
     isPlaying = true;
-    // chanceCards = new ChanceCards();
-    // order players by age
+    chanceCards = new ChanceCards();
   }
 
   private String usedGetOutOfJailFree(Player player) {
@@ -273,19 +270,7 @@ public abstract class GameLogic {
     displayMessage(getWinners());
   }
 
-  public void playerRollDice() {
-    dice.rollDice();
-    if (players[turn].getPosition() + dice.getValue() >= boardSpaces.length) {
-      bank.giveMoney(players[turn], PASS_START_REWARD);
-      displayMessage(playerPassedStart(players[turn]));
-    }
-    var newPosition =
-      (players[turn].getPosition() + dice.getValue()) % boardSpaces.length;
-    players[turn].setPosition(newPosition);
-
-    var space = boardSpaces[newPosition];
-    displayMessage(playerRolled(players[turn], space));
-
+  private void playerLandedOnSpace(BoardSpace space) {
     if (space instanceof PropertySpace) {
       try {
         if (space.getOwner() != players[turn]) {
@@ -319,11 +304,117 @@ public abstract class GameLogic {
         bank.takeMoney(players[turn], JAIL_PENALTY);
         displayMessage(paidJail(players[turn], space));
       }
-    } else if (space instanceof ChanceSpace) {} else if (
-      space instanceof PassiveSpace
-    ) {} else {
+    } else if (space instanceof ChanceSpace) {
+      var card = chanceCards.pickCard(players[turn], bank, boardSpaces);
+      displayMessage(card.getDesctiption());
+      switch (card.index) {
+        case 0:
+          break;
+        case 1:
+          players[turn].setPosition(0);
+          bank.giveMoney(players[turn], 2);
+          break;
+        case 2:
+          while (true) {
+            System.out.println("How many spaces do you want to move?");
+            try {
+              var userInput = getUserInput();
+              var userInputInt = Integer.parseInt(userInput);
+              if (userInputInt < 1 || 5 < userInputInt) throw new Exception();
+              players[turn].setPosition(
+                  userInputInt + players[turn].getPosition()
+                );
+              playerLandedOnSpace(space);
+              break;
+            } catch (Exception e) {
+              System.out.println("Invalid input");
+            }
+          }
+          break;
+        case 3:
+          break;
+        case 4:
+          break;
+        case 5:
+          break;
+        case 6:
+          bank.takeMoney(players[turn], 2);
+          displayMessage(
+            "The player" +
+            players[turn].getName() +
+            " has recieved 2M and now has " +
+            players[turn].account.getBalance()
+          );
+          break;
+        case 7:
+          break;
+        case 8:
+          break;
+        case 9:
+          players[turn].getOutOfJailFree++;
+          break;
+        case 10:
+          players[turn].setPosition(23);
+          break;
+        case 11:
+          break;
+        case 12:
+          break;
+        case 13:
+          for (var i = 0; i < players.length; i++) {
+            if (i != turn) {
+              players[i].giveMoney(players[turn], 1);
+            }
+          }
+          break;
+        case 14:
+          break;
+        case 15:
+          bank.giveMoney(players[turn], 2);
+          break;
+        case 16:
+          break;
+        case 17:
+          players[turn].setPosition(10);
+          try {
+            if (boardSpaces[10].getOwner() != null) {
+              boardSpaces[10].setOwner(players[turn]);
+            } else {
+              players[turn].giveMoney(
+                  boardSpaces[10].getOwner(),
+                  boardSpaces[10].getPrice()
+                );
+            }
+          } catch (Exception e) {
+            // TODO: handle exception
+          }
+          break;
+        case 18:
+          break;
+        case 19:
+          break;
+        default:
+          break;
+      }
+    } else if (space instanceof PassiveSpace) {} else {
       System.out.println("Error: space type not recognized");
     }
+  }
+
+  public void playerRollDice() {
+    dice.rollDice();
+    if (players[turn].getPosition() + dice.getValue() >= boardSpaces.length) {
+      bank.giveMoney(players[turn], PASS_START_REWARD);
+      displayMessage(playerPassedStart(players[turn]));
+    }
+    var newPosition =
+      (players[turn].getPosition() + dice.getValue()) % boardSpaces.length;
+    players[turn].setPosition(newPosition);
+
+    var space = boardSpaces[newPosition];
+    displayMessage(playerRolled(players[turn], space));
+
+    playerLandedOnSpace(space);
 
     switchTurn();
   }
