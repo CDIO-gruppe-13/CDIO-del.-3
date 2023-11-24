@@ -18,10 +18,16 @@ public class GUI_test implements ActionListener {
 
     // All the visual content of the product
     JLabel labelTextBox;
+
     JLabel PlayerOne;
     JLabel PlayerTwo;
     JLabel PlayerThree;
     JLabel PlayerFour;
+
+    JLabel PlayerOneAccount;
+    JLabel PlayerTwoAccount;
+    JLabel PlayerThreeAccount;
+    JLabel PlayerFourAccount;
 
     JButton RollButton;
 
