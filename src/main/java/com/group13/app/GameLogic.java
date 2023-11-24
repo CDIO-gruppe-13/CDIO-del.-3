@@ -136,7 +136,7 @@ public abstract class GameLogic {
   protected String paidRentToProperty(Player player, BoardSpace space) {
     try {
       return String.format(
-          "The player %s paid %d M in rent to: " + space.getOwner().getName() + " (" + space.getOwner().account.getBalance() + ") on the space %s and now has %d M left",
+          "The player %s paid %d M in rent to " + space.getOwner().getName() + " (" + space.getOwner().account.getBalance() + " M) on the space %s and now has %d M left",
           player.getName(),
           space.getPrice(),
           space.getName(),
