@@ -317,9 +317,9 @@ public abstract class GameLogic {
         case 6:
           bank.takeMoney(players[turn], 2);
           displayMessage(
-              "The player" +
+              "The player " +
                   players[turn].getName() +
-                  " has recieved 2M and now has " +
+                  " has payed 2M and now has " +
                   players[turn].account.getBalance());
           break;
         case 7:
