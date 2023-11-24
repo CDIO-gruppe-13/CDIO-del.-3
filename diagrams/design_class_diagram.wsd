@@ -1,0 +1,88 @@
+@startuml design_class_diagram
+object Account {
+    balance
+    getBalance()
+    addBalance()
+    subtractBalance()
+    toString()
+}
+
+object Player {
+    character: String
+    age: int
+    account: Account
+    position: int
+    getName()
+    getPosition()
+    setPosition()
+    toString()
+}
+
+Account --> Player::account
+
+object Bank {
+    balance: int
+    giveMoney(...)
+    takeMoney(...)
+}
+
+object BoardSpace {
+}
+
+object PropertySpace {
+    price: int
+    owner: Player
+    getRent(): int
+}
+
+object JailSpace {
+}
+
+object ChanceSpace
+object PassiveSpace
+
+object ChanceCards {
+    index: int
+    order: int[]
+    ChanceCards()
+}
+
+object GameBoard {
+    boardSpaces: BoardSpace
+}
+
+object Dice {
+    sides: int
+    value: int
+    rollDice(): void
+    getValue(): int
+}
+
+BoardSpace <-- PropertySpace
+BoardSpace <-- ChanceSpace
+BoardSpace <-- JailSpace
+BoardSpace <-- PassiveSpace
+BoardSpace "24" --* "1" GameBoard::boardSpaces
+
+object GameLogic {
+    chanceCards: ChanceCards
+    players: Player[]
+    turn: int
+    gameBoard: GameBoard
+    dice: Dice
+    playTurn()
+    switchTurn()
+}
+
+ChanceCards --> GameLogic::chanceCards
+Bank ---> GameLogic::bank
+Player "2..4" ---> "1" GameLogic::players
+Dice ---> GameLogic::dice
+GameBoard --> GameLogic
+
+object ConsoleGame {
+    startGame()
+}
+
+GameLogic --> ConsoleGame
+@enduml

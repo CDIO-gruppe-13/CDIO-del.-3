@@ -1,0 +1,23 @@
+@startuml use_case_diagram
+left to right direction
+actor "Player" as P
+actor "Bank" as B
+
+rectangle Monolopy {
+    usecase "Roll Die" as rd
+    usecase "Move Piece" as mp
+    usecase "Buy Property" as bp
+    usecase "Pay Rent" as pr
+    usecase "Pay Fine" as pf
+    usecase "Collect Money" as cm
+    usecase "Give Money" as gm
+}
+P --> rd
+P --> mp
+P --> bp
+P --> pr
+P --> pf
+P --> cm
+cm <-- B
+gm <-- B
+@enduml

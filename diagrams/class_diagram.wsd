@@ -1,0 +1,109 @@
+@startuml class_diagram
+class Account {
+    - balance: int
+    + Account(startBalance: int)
+    + getBalance(): int
+    + addBalance(): boolean
+    + subtractBalance() : boolean
+    + toString(): String
+}
+
+class Player {
+    - character: String
+    - age: int
+    - position: int
+    + account: Account
+    + Player(name: String age: int, startBalance: int)
+    + getName(): String
+    + getAge(): int
+    + getPosition(): int
+    + setPosition(): int
+    + toString(): String
+}
+
+Account --> Player::account
+
+class Bank {
+    - balance: int
+    + Bank(startBalance: int)
+    + giveMoney(player: Player, balance: int): boolean
+    + takeMoney(player: Player, balance: int): boolean
+}
+
+abstract class BoardSpace {
+    {abstract} name: String
+}
+
+class PropertySpace {
+    - price: int
+    - owner: Player
+    - color: Color
+    + PropertySpace(name: String, price: String)
+    + getRent(): int
+}
+
+enum Color {
+    ORANGE
+    GREEN
+    LIGHT_BLUE
+    DARK_BLUE
+    PINK
+    RED
+}
+
+class JailSpace {}
+
+class ChanceSpace {}
+
+class ChanceCards {
+    - index: int
+    - order: int[]
+    + ChanceCards()
+    + pickCard(player: Player): void
+}
+
+class GameBoard {
+    - boardSpaces: BoardSpace
+}
+
+class Dice {
+    - sides: int
+    - value: int
+    + Dice(sides: int)
+    + rollDice(): void
+    + getValue(): int
+}
+
+PropertySpace::color <-- Color
+
+BoardSpace <|-- PropertySpace
+UnownableBoardSpace <|-- ChanceSpace
+UnownableBoardSpace <|-- JailSpace
+UnownableBoardSpace <|-- PassiveSpace
+UnownableBoardSpace --|> BoardSpace
+BoardSpace -|> GameBoard::boardSpaces
+
+class GameLogic {
+    - chanceCards: ChanceCards
+    - players: Player[]
+    - turn: int
+    - gameBoard: GameBoard
+    - dice: Dice
+    + GameLogic(players: int)
+    + playTurn(): void
+    + switchTurn(): void
+}
+
+ChanceCards --> GameLogic::chanceCards
+Bank ---> GameLogic::bank
+Player ---> GameLogic::players
+Dice ---> GameLogic::dice
+GameBoard --> GameLogic
+
+class ConsoleGame {
+    + ConsoleGame(players: int)
+    + startGame(): void
+}
+
+GameLogic --> ConsoleGame
+@enduml
