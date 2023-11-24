@@ -270,7 +270,8 @@ public abstract class GameLogic {
     displayMessage(getWinners());
   }
 
-  private void playerLandedOnSpace(BoardSpace space) {
+  private void playerLandedOnSpace() {
+    var space = boardSpaces[players[turn].getPosition()];
     if (space instanceof PropertySpace) {
       try {
         if (space.getOwner() != players[turn]) {
@@ -324,7 +325,7 @@ public abstract class GameLogic {
               players[turn].setPosition(
                   userInputInt + players[turn].getPosition()
                 );
-              playerLandedOnSpace(space);
+              playerLandedOnSpace();
               break;
             } catch (Exception e) {
               System.out.println("Invalid input");
@@ -355,6 +356,19 @@ public abstract class GameLogic {
           break;
         case 10:
           players[turn].setPosition(23);
+          try {
+            // displayMessage("The player " + players[turn]);
+            if (boardSpaces[23].getOwner() == null) {
+              boardSpaces[23].setOwner(players[turn]);
+              displayMessage(
+                players[turn].getName() +
+                " now owns: " +
+                boardSpaces[23].getName()
+              );
+            }
+          } catch (Exception e) {
+            displayMessage(e.toString());
+          }
           break;
         case 11:
           break;
@@ -366,7 +380,7 @@ public abstract class GameLogic {
               var paid = players[i].giveMoney(players[turn], 1);
               if (!paid) {
                 displayMessage(wentBankrupt(players[i], space));
-                endGame();
+                stopGame(space);
               }
             }
           }
@@ -383,11 +397,13 @@ public abstract class GameLogic {
           try {
             if (boardSpaces[10].getOwner() != null) {
               boardSpaces[10].setOwner(players[turn]);
+              displayMessage(boughtProperty(players[turn], space));
             } else {
               players[turn].giveMoney(
                   boardSpaces[10].getOwner(),
                   boardSpaces[10].getPrice()
                 );
+              displayMessage(paidRentToProperty(players[turn], space));
             }
           } catch (Exception e) {
             // TODO: handle exception
@@ -418,7 +434,7 @@ public abstract class GameLogic {
     var space = boardSpaces[newPosition];
     displayMessage(playerRolled(players[turn], space));
 
-    playerLandedOnSpace(space);
+    playerLandedOnSpace();
 
     switchTurn();
   }
