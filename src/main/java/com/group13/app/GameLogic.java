@@ -319,7 +319,7 @@ public abstract class GameLogic {
           displayMessage(
               "The player " +
                   players[turn].getName() +
-                  " has payed 2M and now has " +
+                  " has paid 2M and now has " +
                   players[turn].account.getBalance());
           break;
         case 7:
