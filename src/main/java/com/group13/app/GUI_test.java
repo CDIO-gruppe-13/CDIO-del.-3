@@ -1,6 +1,8 @@
 package com.group13.app;
 
 import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
 
@@ -40,21 +42,25 @@ public class GUI_test implements ActionListener {
 
         labelTextBox = new JLabel();
 
-        PlayerOne = new JLabel();
-        PlayerTwo = new JLabel();
-        PlayerThree = new JLabel();
-        PlayerFour = new JLabel();
+        PlayerOne = new JLabel("PlayerOne has x money");
+        PlayerTwo = new JLabel("PlayerTwo has x money");
+        PlayerThree = new JLabel("PlayerThree has x money");
+        PlayerFour = new JLabel("PlayerFour has x money");
 
         RollButton = new JButton("Roll dice");
+
+        GridBagConstraints GBC = new GridBagConstraints();
 
         RollButton.addActionListener(this);
 
         panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 100, 300));
-        panel.setLayout(new GridLayout(6, 3));
-        panel.add(PlayerOne, panel, 0);
-        panel.add(PlayerTwo, panel, 0);
-        panel.add(PlayerThree, panel, 0);
-        panel.add(PlayerFour, panel, 0);
+        panel.setLayout(new GridBagLayout());
+        panel.add(PlayerOne, panel);
+        panel.add(PlayerTwo, panel);
+        panel.add(PlayerThree, panel);
+        panel.add(PlayerFour, panel);
+
+        panel.add(RollButton, panel);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
