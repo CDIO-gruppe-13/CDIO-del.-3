@@ -45,6 +45,18 @@ public class GUI_test implements ActionListener {
         PlayerThree = new JLabel();
         PlayerFour = new JLabel();
 
+        RollButton = new JButton("Roll dice");
+
+        RollButton.addActionListener(this);
+
+        panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 100, 300));
+
+        frame.add(panel, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Monoply JR");
+        frame.pack();
+        frame.setVisible(true);
+
     }
 
     public void actionPerformed(ActionEvent e) {
